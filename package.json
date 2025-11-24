@@ -1,0 +1,84 @@
+{
+  "name": "@muhammedaksam/bulut-tahsilat-node",
+  "version": "0.1.0",
+  "description": "TypeScript client SDK for BulutTahsilat Bank Payment Web Service",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "dev": "tsc --watch",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:light": "jest --maxWorkers=2 --verbose=false",
+    "test:serial": "jest --runInBand",
+    "test:bail": "jest --maxWorkers=2 --bail",
+    "lint": "eslint src/**",
+    "lint:fix": "eslint src/** --fix",
+    "lint:check": "pnpm lint && pnpm format:check",
+    "format": "prettier --write \"src/**/*.{ts,js,json}\" \"*.{js,ts,json,md}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,js,json}\" \"*.{js,ts,json,md}\"",
+    "fix": "pnpm lint:fix && pnpm format",
+    "clean": "rm -rf dist coverage",
+    "version:show": "ts-node scripts/version-helper.ts show",
+    "version:update": "ts-node scripts/version-helper.ts update",
+    "version:bump": "ts-node scripts/version-helper.ts update",
+    "prepublishOnly": "pnpm run test && pnpm run build && node -e \"const fs=require('fs'); if(!fs.existsSync('dist')||!fs.existsSync('dist/index.js')){console.error('ERROR: build artifacts missing in dist'); process.exit(1)}\"",
+    "prepare": "pnpm run build"
+  },
+  "keywords": [
+    "buluttahsilat",
+    "payment",
+    "bank",
+    "soap",
+    "api",
+    "client",
+    "typescript"
+  ],
+  "author": "Muhammed Mustafa AKŞAM <info@muhammedaksam.com.tr> (https://github.com/muhammedaksam)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/muhammedaksam/bulut-tahsilat-node.git"
+  },
+  "bugs": {
+    "url": "https://github.com/muhammedaksam/bulut-tahsilat-node/issues"
+  },
+  "homepage": "https://github.com/muhammedaksam/bulut-tahsilat-node#readme",
+  "dependencies": {
+    "axios": "^1.13.2",
+    "fast-xml-parser": "^5.3.2"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.10.1",
+    "@typescript-eslint/eslint-plugin": "^8.47.0",
+    "@typescript-eslint/parser": "^8.47.0",
+    "eslint": "^9.39.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "jest": "^30.2.0",
+    "prettier": "^3.6.2",
+    "ts-jest": "^29.4.5",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.47.0"
+  },
+  "engines": {
+    "node": ">=20",
+    "pnpm": "^10.23.0"
+  },
+  "files": [
+    "dist",
+    "package.json",
+    "README.md"
+  ],
+  "packageManager": "pnpm@10.23.0",
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}
