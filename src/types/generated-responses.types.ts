@@ -1,54 +1,14 @@
 import { BaseResponse } from './index';
-
-/**
- * Response types from SOAP documentation
- *
- * Note: Some types are defined in manual files and are skipped here to avoid duplicates.
- */
+import { BankPaymentListItem, PaymentCategoryListItem } from './bank-payment.types';
+import { BankBalance } from './responses.types';
+import { VPosTransactionListItem, POSPaymentListItem } from './pos-payment.types';
+import { SubFirmReturn } from './subfirm.types';
 
 /**
  * Response for BankPaymentList
  */
 export interface ResponseBankPaymentList extends BaseResponse {
-  PaymentID?: number;
-  FirmBankCode?: string;
-  FirmBankName?: string;
-  FirmBankIBAN?: string;
-  SenderFirmID?: number;
-  SenderFirmCode?: string;
-  SenderFirmName?: string;
-  SenderFirmBankCode?: string;
-  SenderFirmBankName?: string;
-  SenderFirmBankIBAN?: string;
-  PaymentDate?: string;
-  Amount?: number;
-  Explanation?: string;
-  PaymentTypeID?: number;
-  PaymentTypeExplantion?: string;
-  TCNumber?: string;
-  FullName?: string;
-  PaymentStatusTypeID?: number;
-  PaymentStatusTypeExplantion?: string;
-  ReferenceNumber?: string;
-  VoucherNumber?: string;
-  TaxNumber?: string;
-  PaymentExpCode?: string;
-  BranchFirmID?: number;
-  BranchFirmName?: string;
-  BranchFirmTaxNumber?: string;
-  AccountTypeID?: number;
-  AccountCurrencyCode?: string;
-  AccountRelationCode?: string;
-  SenderFirmBusinessArea?: string;
-  SenderFirmAccountingCode?: string;
-  SenderFirmReservedField?: string;
-  CheckNumber?: string;
-  CustomField1?: string;
-  CustomField2?: string;
-  FunctionCode1?: string;
-  FunctionCode2?: string;
-  BalanceAfterTransaction?: number;
-  PaymentCategoryID?: number;
+  BankPaymentList?: BankPaymentListItem[];
 }
 
 /**
@@ -64,90 +24,14 @@ export interface BankPaymentListAllParams extends BaseResponse {
  * Response for BankPaymentListAll
  */
 export interface ResponseBankPaymentListAll extends BaseResponse {
-  PaymentID?: number;
-  FirmBankCode?: string;
-  FirmBankName?: string;
-  FirmBankIBAN?: string;
-  SenderFirmID?: number;
-  SenderFirmCode?: string;
-  SenderFirmName?: string;
-  SenderFirmBankCode?: string;
-  SenderFirmBankName?: string;
-  SenderFirmBankIBAN?: string;
-  PaymentDate?: string;
-  Amount?: number;
-  Explanation?: string;
-  PaymentTypeID?: number;
-  PaymentTypeExplantion?: string;
-  TCNumber?: string;
-  FullName?: string;
-  PaymentStatusTypeID?: number;
-  PaymentStatusTypeExplantion?: string;
-  ReferenceNumber?: string;
-  VoucherNumber?: string;
-  TaxNumber?: string;
-  PaymentExpCode?: string;
-  BranchFirmID?: number;
-  BranchFirmName?: string;
-  BranchFirmTaxNumber?: string;
-  AccountTypeID?: number;
-  AccountCurrencyCode?: string;
-  AccountRelationCode?: string;
-  SenderFirmBusinessArea?: string;
-  SenderFirmAccountingCode?: string;
-  SenderFirmReservedField?: string;
-  CheckNumber?: string;
-  CustomField1?: string;
-  CustomField2?: string;
-  FunctionCode1?: string;
-  FunctionCode2?: string;
-  BalanceAfterTransaction?: number;
-  PaymentCategoryID?: number;
+  BankPaymentList?: BankPaymentListItem[];
 }
 
 /**
  * Response for BankPaymentListAllSubFirm
  */
 export interface ResponseBankPaymentListAllSubFirm extends BaseResponse {
-  PaymentID?: number;
-  FirmBankCode?: string;
-  FirmBankName?: string;
-  FirmBankIBAN?: string;
-  SenderFirmID?: number;
-  SenderFirmCode?: string;
-  SenderFirmName?: string;
-  SenderFirmBankCode?: string;
-  SenderFirmBankName?: string;
-  SenderFirmBankIBAN?: string;
-  PaymentDate?: string;
-  Amount?: number;
-  Explanation?: string;
-  PaymentTypeID?: number;
-  PaymentTypeExplantion?: string;
-  TCNumber?: string;
-  FullName?: string;
-  PaymentStatusTypeID?: number;
-  PaymentStatusTypeExplantion?: string;
-  ReferenceNumber?: string;
-  VoucherNumber?: string;
-  TaxNumber?: string;
-  PaymentExpCode?: string;
-  BranchFirmID?: number;
-  BranchFirmName?: string;
-  BranchFirmTaxNumber?: string;
-  AccountTypeID?: number;
-  AccountCurrencyCode?: string;
-  AccountRelationCode?: string;
-  SenderFirmBusinessArea?: string;
-  SenderFirmAccountingCode?: string;
-  SenderFirmReservedField?: string;
-  CheckNumber?: string;
-  CustomField1?: string;
-  CustomField2?: string;
-  FunctionCode1?: string;
-  FunctionCode2?: string;
-  BalanceAfterTransaction?: number;
-  PaymentCategoryID?: number;
+  BankPaymentList?: BankPaymentListItem[];
 }
 
 /**
@@ -163,33 +47,7 @@ export interface BankPaymentListAllWithFeatureParams extends BaseResponse {
  * Response for BankPaymentListAllWithFeature
  */
 export interface ResponseBankPaymentListAllWithFeature extends BaseResponse {
-  PaymentID?: number;
-  FirmBankCode?: string;
-  FirmBankName?: string;
-  FirmBankIBAN?: string;
-  SenderFirmID?: number;
-  SenderFirmCode?: string;
-  SenderFirmName?: string;
-  SenderFirmBankCode?: string;
-  SenderFirmBankName?: string;
-  SenderFirmBankIBAN?: string;
-  PaymentDate?: string;
-  Amount?: number;
-  Explanation?: string;
-  PaymentTypeID?: number;
-  PaymentTypeExplantion?: string;
-  TCNumber?: string;
-  FullName?: string;
-  PaymentStatusTypeID?: number;
-  PaymentStatusTypeExplantion?: string;
-  ReferenceNumber?: string;
-  VoucherNumber?: string;
-  TaxNumber?: string;
-  PaymentExpCode?: string;
-  BusinessArea?: string;
-  AccountingCode?: string;
-  ReservedField?: string;
-  CheckNumber?: string;
+  BankPaymentList?: BankPaymentListItem[];
 }
 
 /**
@@ -205,45 +63,7 @@ export interface BankPaymentListDebitParams extends BaseResponse {
  * Response for BankPaymentListDebit
  */
 export interface ResponseBankPaymentListDebit extends BaseResponse {
-  PaymentID?: number;
-  FirmBankCode?: string;
-  FirmBankName?: string;
-  FirmBankIBAN?: string;
-  SenderFirmID?: number;
-  SenderFirmCode?: string;
-  SenderFirmName?: string;
-  SenderFirmBankCode?: string;
-  SenderFirmBankName?: string;
-  SenderFirmBankIBAN?: string;
-  PaymentDate?: string;
-  Amount?: number;
-  Explanation?: string;
-  PaymentTypeID?: number;
-  PaymentTypeExplantion?: string;
-  TCNumber?: string;
-  FullName?: string;
-  PaymentStatusTypeID?: number;
-  PaymentStatusTypeExplantion?: string;
-  ReferenceNumber?: string;
-  VoucherNumber?: string;
-  TaxNumber?: string;
-  PaymentExpCode?: string;
-  BranchFirmID?: number;
-  BranchFirmName?: string;
-  BranchFirmTaxNumber?: string;
-  AccountTypeID?: number;
-  AccountCurrencyCode?: string;
-  AccountRelationCode?: string;
-  SenderFirmBusinessArea?: string;
-  SenderFirmAccountingCode?: string;
-  SenderFirmReservedField?: string;
-  CheckNumber?: string;
-  CustomField1?: string;
-  CustomField2?: string;
-  FunctionCode1?: string;
-  FunctionCode2?: string;
-  BalanceAfterTransaction?: number;
-  PaymentCategoryID?: number;
+  BankPaymentList?: BankPaymentListItem[];
 }
 
 /**
@@ -259,45 +79,7 @@ export interface BankPaymentListForCustomFieldsParams extends BaseResponse {
  * Response for BankPaymentListForCustomFields
  */
 export interface ResponseBankPaymentListForCustomFields extends BaseResponse {
-  PaymentID?: number;
-  FirmBankCode?: string;
-  FirmBankName?: string;
-  FirmBankIBAN?: string;
-  SenderFirmID?: number;
-  SenderFirmCode?: string;
-  SenderFirmName?: string;
-  SenderFirmBankCode?: string;
-  SenderFirmBankName?: string;
-  SenderFirmBankIBAN?: string;
-  PaymentDate?: string;
-  Amount?: number;
-  Explanation?: string;
-  PaymentTypeID?: number;
-  PaymentTypeExplantion?: string;
-  TCNumber?: string;
-  FullName?: string;
-  PaymentStatusTypeID?: number;
-  PaymentStatusTypeExplantion?: string;
-  ReferenceNumber?: string;
-  VoucherNumber?: string;
-  TaxNumber?: string;
-  PaymentExpCode?: string;
-  BranchFirmID?: number;
-  BranchFirmName?: string;
-  BranchFirmTaxNumber?: string;
-  AccountTypeID?: number;
-  AccountCurrencyCode?: string;
-  AccountRelationCode?: string;
-  SenderFirmBusinessArea?: string;
-  SenderFirmAccountingCode?: string;
-  SenderFirmReservedField?: string;
-  CheckNumber?: string;
-  CustomField1?: string;
-  CustomField2?: string;
-  FunctionCode1?: string;
-  FunctionCode2?: string;
-  BalanceAfterTransaction?: number;
-  PaymentCategoryID?: number;
+  BankPaymentList?: BankPaymentListItem[];
 }
 
 /**
@@ -354,17 +136,7 @@ export interface GetFirmBankBalanceParams extends BaseResponse {
  * Response for GetFirmBankBalance
  */
 export interface ResponseFirmBankBalance extends BaseResponse {
-  FirmBankCode?: string;
-  FirmBankName?: string;
-  FirmName?: string;
-  FirmBankBranchName?: string;
-  FirmBankNickName?: string;
-  FirmBankAccountType?: string;
-  FirmBankIBAN?: string;
-  FirmBankCurrencyUnit?: string;
-  LastTimeStamp?: string;
-  Balance?: number;
-  BlockedBalance?: number;
+  BankList?: BankBalance[];
 }
 
 /**
@@ -404,17 +176,7 @@ export interface GetFirmBankDailyBalanceParams extends BaseResponse {
  * Response for GetFirmBankDailyBalance
  */
 export interface ResponseFirmBankDailyBalance extends BaseResponse {
-  FirmBankCode?: string;
-  FirmBankName?: string;
-  FirmName?: string;
-  FirmBankBranchName?: string;
-  FirmBankNickName?: string;
-  FirmBankAccountType?: string;
-  FirmBankIBAN?: string;
-  FirmBankCurrencyUnit?: string;
-  LastTimeStamp?: string;
-  Balance?: number;
-  BlockedBalance?: number;
+  BankList?: BankBalance[];
 }
 
 /**
@@ -447,17 +209,14 @@ export interface GetFirmManagerListParams extends BaseResponse {
  * Response for GetFirmManagerList
  */
 export interface ResponseFirmManagerList extends BaseResponse {
-  string?: string;
+  FirmManagerList?: string[];
 }
 
 /**
  * Response for GetPaymentCategoryList
  */
 export interface ResponsePaymentCategoryList extends BaseResponse {
-  PaymentCategoryID?: number;
-  CategoryName?: string;
-  ParentCategoryID?: number;
-  ParentCategoryName?: string;
+  PaymentCategoryList?: PaymentCategoryListItem[];
 }
 
 /**
@@ -485,49 +244,7 @@ export interface ResponseSubFirmInfo extends BaseResponse {
  * Response for GetVPosTransactionList
  */
 export interface ResponseVPosTransactionList extends BaseResponse {
-  TransactionID?: number;
-  TotalPaymentAmount?: number;
-  CurrencyCode?: string;
-  InstallmentNumber?: number;
-  AdditionalInstallmentNumber?: number;
-  TransactionDate?: string;
-  TransactionStatusID?: number;
-  TransactionStatus?: string;
-  PaymentExpCode?: string;
-  FirmName?: string;
-  CreditCardHoldersFullName?: string;
-  MaskedCreditCardNumber?: string;
-  PosBankCode?: string;
-  PosBankName?: string;
-  CardBankCode?: string;
-  CardBankName?: string;
-  AuthCode?: string;
-  SubFirmProgressPayment?: number;
-  ServiceProviderCommissionRate?: number;
-  FirmCommissionRate?: number;
-  UserFullName?: string;
-  BusinessArea?: string;
-  AccountingCode?: string;
-  FirmReservedField?: string;
-  Explanation?: string;
-  TransactionReservedField?: string;
-  IsTransactionCancel?: boolean;
-  ParentVPosTransactionID?: number;
-  VPosProductTypeID?: number;
-  VPosProductTypeName?: string;
-  BranchFirmID?: number;
-  BranchFirmName?: string;
-  BranchFirmTaxNumber?: string;
-  VPosBankMerchantID?: string;
-  OrderRefNo?: string;
-  OrderGuidCode?: string;
-  OrderBankNo?: string;
-  SubPaymentExpCode?: string;
-  SubFirmName?: string;
-  VPosTransactionDekontUrl?: string;
-  BankMessage?: string;
-  BusinessCard?: string;
-  PosCardTypeID?: number;
+  VPosTransactionList?: VPosTransactionListItem[];
 }
 
 // ResponsePosPaymentList already exists in pos-payment.types.ts - skipping
@@ -536,178 +253,34 @@ export interface ResponseVPosTransactionList extends BaseResponse {
  * Response for PosPaymentListGreaterThanPosPaymentID
  */
 export interface ResponsePosPaymentListGreaterThanPosPaymentID extends BaseResponse {
-  PosPaymentID?: number;
-  BankCode?: string;
-  BankName?: string;
-  SubFirmID?: number;
-  SubFirmName?: string;
-  SubFirmVKN?: string;
-  PaymentDate?: string;
-  ValorDate?: string;
-  GrossAmount?: number;
-  TotalCommission?: number;
-  CommissionRate?: number;
-  Amount?: number;
-  BankServiceCommission?: number;
-  OtherCommission?: number;
-  BusinessNo?: string;
-  TerminalID?: string;
-  AuthCode?: string;
-  InstallmentNumber?: number;
-  ProcessType?: string;
-  ReturnIBAN?: string;
-  PosReservedField?: string;
-  EndOfDay?: string;
-  Currency?: string;
-  CardBankCode?: string;
-  CardBankName?: string;
-  CardNumber?: string;
-  MemberBranchName?: string;
-  TerminalName?: string;
-  PosCardTypeName?: string;
-  PosTypeName?: string;
-  BatchNumber?: string;
-  InstallmentOrderNo?: number;
-  OrderBankCode?: string;
-  PaymentExpCode?: string;
-  CardType?: string;
-  AccountNumber?: string;
-  ProcessTypeCustom?: string;
+  PosPaymentList?: POSPaymentListItem[];
 }
 
 /**
  * Response for PosPaymentListSubFirm
  */
 export interface ResponsePosPaymentListSubFirm extends BaseResponse {
-  PosPaymentID?: number;
-  BankCode?: string;
-  BankName?: string;
-  SubFirmID?: number;
-  SubFirmName?: string;
-  SubFirmVKN?: string;
-  PaymentDate?: string;
-  ValorDate?: string;
-  GrossAmount?: number;
-  TotalCommission?: number;
-  CommissionRate?: number;
-  Amount?: number;
-  BankServiceCommission?: number;
-  OtherCommission?: number;
-  BusinessNo?: string;
-  TerminalID?: string;
-  AuthCode?: string;
-  InstallmentNumber?: number;
-  ProcessType?: string;
-  ReturnIBAN?: string;
-  PosReservedField?: string;
-  EndOfDay?: string;
-  Currency?: string;
-  CardBankCode?: string;
-  CardBankName?: string;
-  CardNumber?: string;
-  MemberBranchName?: string;
-  TerminalName?: string;
-  PosCardTypeName?: string;
-  PosTypeName?: string;
-  BatchNumber?: string;
-  InstallmentOrderNo?: number;
-  OrderBankCode?: string;
-  PaymentExpCode?: string;
-  CardType?: string;
-  AccountNumber?: string;
-  ProcessTypeCustom?: string;
+  PosPaymentList?: POSPaymentListItem[];
 }
 
 /**
  * Response for PosPaymentListWithEndOfDay
  */
 export interface ResponsePosPaymentListWithEndOfDay extends BaseResponse {
-  PosPaymentID?: number;
-  BankCode?: string;
-  BankName?: string;
-  SubFirmID?: number;
-  SubFirmName?: string;
-  SubFirmVKN?: string;
-  PaymentDate?: string;
-  ValorDate?: string;
-  GrossAmount?: number;
-  TotalCommission?: number;
-  CommissionRate?: number;
-  Amount?: number;
-  BankServiceCommission?: number;
-  OtherCommission?: number;
-  BusinessNo?: string;
-  TerminalID?: string;
-  AuthCode?: string;
-  InstallmentNumber?: number;
-  ProcessType?: string;
-  ReturnIBAN?: string;
-  PosReservedField?: string;
-  EndOfDay?: string;
-  Currency?: string;
-  CardBankCode?: string;
-  CardBankName?: string;
-  CardNumber?: string;
-  MemberBranchName?: string;
-  TerminalName?: string;
-  PosCardTypeName?: string;
-  PosTypeName?: string;
-  BatchNumber?: string;
-  InstallmentOrderNo?: number;
-  OrderBankCode?: string;
-  PaymentExpCode?: string;
-  CardType?: string;
-  AccountNumber?: string;
-  ProcessTypeCustom?: string;
+  PosPaymentList?: POSPaymentListItem[];
 }
 
 /**
  * Response for PosPaymentListWithValorDate
  */
 export interface ResponsePosPaymentListWithValorDate extends BaseResponse {
-  PosPaymentID?: number;
-  BankCode?: string;
-  BankName?: string;
-  SubFirmID?: number;
-  SubFirmName?: string;
-  SubFirmVKN?: string;
-  PaymentDate?: string;
-  ValorDate?: string;
-  GrossAmount?: number;
-  TotalCommission?: number;
-  CommissionRate?: number;
-  Amount?: number;
-  BankServiceCommission?: number;
-  OtherCommission?: number;
-  BusinessNo?: string;
-  TerminalID?: string;
-  AuthCode?: string;
-  InstallmentNumber?: number;
-  ProcessType?: string;
-  ReturnIBAN?: string;
-  PosReservedField?: string;
-  EndOfDay?: string;
-  Currency?: string;
-  CardBankCode?: string;
-  CardBankName?: string;
-  CardNumber?: string;
-  MemberBranchName?: string;
-  TerminalName?: string;
-  PosCardTypeName?: string;
-  PosTypeName?: string;
-  BatchNumber?: string;
-  InstallmentOrderNo?: number;
-  OrderBankCode?: string;
-  PaymentExpCode?: string;
-  CardType?: string;
-  AccountNumber?: string;
-  ProcessTypeCustom?: string;
+  PosPaymentList?: POSPaymentListItem[];
 }
 
 /**
- * Response for PosPaymentSUM
+ * PosPaymentSUM - item in PosPaymentSUMList
  */
-export interface ResponsePosPaymentSUM extends BaseResponse {
+export interface PosPaymentSUM {
   BankCode?: string;
   BankName?: string;
   BusinessNo?: string;
@@ -723,9 +296,16 @@ export interface ResponsePosPaymentSUM extends BaseResponse {
 }
 
 /**
- * Response for PosReturnList
+ * Response for PosPaymentSUM
  */
-export interface ResponsePosReturnList extends BaseResponse {
+export interface ResponsePosPaymentSUM extends BaseResponse {
+  PosPaymentSUMList?: PosPaymentSUM[];
+}
+
+/**
+ * PosReturnListItem - item in PosReturnList
+ */
+export interface PosReturnListItem {
   PosReturnID?: number;
   BankCode?: string;
   BankName?: string;
@@ -763,92 +343,27 @@ export interface ResponsePosReturnList extends BaseResponse {
   CardType?: string;
   AccountNumber?: string;
   ProcessTypeCustom?: string;
+}
+
+/**
+ * Response for PosReturnList
+ */
+export interface ResponsePosReturnList extends BaseResponse {
+  PosReturnList?: PosReturnListItem[];
 }
 
 /**
  * Response for PosReturnListGreaterThanValorPaymentID
  */
 export interface ResponsePosReturnListGreaterThanValorPaymentID extends BaseResponse {
-  PosReturnID?: number;
-  BankCode?: string;
-  BankName?: string;
-  SubFirmID?: number;
-  SubFirmName?: string;
-  SubFirmVKN?: string;
-  PaymentDate?: string;
-  ValorDate?: string;
-  GrossAmount?: number;
-  TotalCommission?: number;
-  CommissionRate?: number;
-  Amount?: number;
-  BankServiceCommission?: number;
-  OtherCommission?: number;
-  BusinessNo?: string;
-  TerminalID?: string;
-  AuthCode?: string;
-  InstallmentNumber?: number;
-  ProcessType?: string;
-  ReturnIBAN?: string;
-  PosReservedField?: string;
-  EndOfDay?: string;
-  Currency?: string;
-  CardBankCode?: string;
-  CardBankName?: string;
-  CardNumber?: string;
-  MemberBranchName?: string;
-  TerminalName?: string;
-  PosCardTypeName?: string;
-  PosTypeName?: string;
-  BatchNumber?: string;
-  InstallmentOrderNo?: number;
-  OrderBankCode?: string;
-  PaymentExpCode?: string;
-  CardType?: string;
-  AccountNumber?: string;
-  ProcessTypeCustom?: string;
+  PosReturnList?: PosReturnListItem[];
 }
 
 /**
  * Response for PosReturnListSubFirm
  */
 export interface ResponsePosReturnListSubFirm extends BaseResponse {
-  PosReturnID?: number;
-  BankCode?: string;
-  BankName?: string;
-  SubFirmID?: number;
-  SubFirmName?: string;
-  SubFirmVKN?: string;
-  PaymentDate?: string;
-  ValorDate?: string;
-  GrossAmount?: number;
-  TotalCommission?: number;
-  CommissionRate?: number;
-  Amount?: number;
-  BankServiceCommission?: number;
-  OtherCommission?: number;
-  BusinessNo?: string;
-  TerminalID?: string;
-  AuthCode?: string;
-  InstallmentNumber?: number;
-  ProcessType?: string;
-  ReturnIBAN?: string;
-  PosReservedField?: string;
-  EndOfDay?: string;
-  Currency?: string;
-  CardBankCode?: string;
-  CardBankName?: string;
-  CardNumber?: string;
-  MemberBranchName?: string;
-  TerminalName?: string;
-  PosCardTypeName?: string;
-  PosTypeName?: string;
-  BatchNumber?: string;
-  InstallmentOrderNo?: number;
-  OrderBankCode?: string;
-  PaymentExpCode?: string;
-  CardType?: string;
-  AccountNumber?: string;
-  ProcessTypeCustom?: string;
+  PosReturnList?: PosReturnListItem[];
 }
 
 /**
@@ -924,20 +439,7 @@ export type ResponseSubFirmIBANDelete = BaseResponse;
  * Response for SubFirmList
  */
 export interface ResponseSubFirmList extends BaseResponse {
-  FirmID?: number;
-  FirmCode?: string;
-  FirmName?: string;
-  PaymentExpCode?: string;
-  TaxNumber?: string;
-  TaxOffice?: string;
-  BusinessArea?: string;
-  AccountingCode?: string;
-  ReservedField?: string;
-  StatusID?: number;
-  FirmGSM?: string;
-  FirmEmail?: string;
-  AuthPersName?: string;
-  AuthPersSurname?: string;
+  SubFirmList?: SubFirmReturn[];
 }
 
 /**
@@ -1026,9 +528,9 @@ export interface UpdatePaymentStatusInfoWithPaymentIDListParams extends BaseResp
 export type ResponseUpdatePaymentStatusInfoWithPaymentIDList = BaseResponse;
 
 /**
- * Response for ValorPaymentSUM
+ * ValorPaymentSUM - item in ValorPaymentSUMList
  */
-export interface ResponseValorPaymentSUM extends BaseResponse {
+export interface ValorPaymentSUM {
   BankCode?: string;
   BankName?: string;
   BusinessNo?: string;
@@ -1041,4 +543,11 @@ export interface ResponseValorPaymentSUM extends BaseResponse {
   SUMOtherCommission?: number;
   RowCount?: number;
   Currency?: string;
+}
+
+/**
+ * Response for ValorPaymentSUM
+ */
+export interface ResponseValorPaymentSUM extends BaseResponse {
+  ValorPaymentSUMList?: ValorPaymentSUM[];
 }
