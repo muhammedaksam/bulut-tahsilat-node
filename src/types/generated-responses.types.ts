@@ -8,7 +8,7 @@ import { SubFirmReturn } from './subfirm.types';
  * Response for BankPaymentList
  */
 export interface ResponseBankPaymentList extends BaseResponse {
-  BankPaymentList?: BankPaymentListItem[];
+  BankPaymentListItem?: BankPaymentListItem[];
 }
 
 /**
@@ -24,14 +24,14 @@ export interface BankPaymentListAllParams extends BaseResponse {
  * Response for BankPaymentListAll
  */
 export interface ResponseBankPaymentListAll extends BaseResponse {
-  BankPaymentList?: BankPaymentListItem[];
+  BankPaymentListItem?: BankPaymentListItem[];
 }
 
 /**
  * Response for BankPaymentListAllSubFirm
  */
 export interface ResponseBankPaymentListAllSubFirm extends BaseResponse {
-  BankPaymentList?: BankPaymentListItem[];
+  BankPaymentListItem?: BankPaymentListItem[];
 }
 
 /**
@@ -47,7 +47,7 @@ export interface BankPaymentListAllWithFeatureParams extends BaseResponse {
  * Response for BankPaymentListAllWithFeature
  */
 export interface ResponseBankPaymentListAllWithFeature extends BaseResponse {
-  BankPaymentList?: BankPaymentListItem[];
+  BankPaymentListItem?: BankPaymentListItem[];
 }
 
 /**
@@ -63,7 +63,7 @@ export interface BankPaymentListDebitParams extends BaseResponse {
  * Response for BankPaymentListDebit
  */
 export interface ResponseBankPaymentListDebit extends BaseResponse {
-  BankPaymentList?: BankPaymentListItem[];
+  BankPaymentListItem?: BankPaymentListItem[];
 }
 
 /**
@@ -79,7 +79,7 @@ export interface BankPaymentListForCustomFieldsParams extends BaseResponse {
  * Response for BankPaymentListForCustomFields
  */
 export interface ResponseBankPaymentListForCustomFields extends BaseResponse {
-  BankPaymentList?: BankPaymentListItem[];
+  BankPaymentListItem?: BankPaymentListItem[];
 }
 
 /**
@@ -176,7 +176,7 @@ export interface GetFirmBankDailyBalanceParams extends BaseResponse {
  * Response for GetFirmBankDailyBalance
  */
 export interface ResponseFirmBankDailyBalance extends BaseResponse {
-  BankList?: BankBalance[];
+  BankBalance?: BankBalance[];
 }
 
 /**
@@ -253,28 +253,28 @@ export interface ResponseVPosTransactionList extends BaseResponse {
  * Response for PosPaymentListGreaterThanPosPaymentID
  */
 export interface ResponsePosPaymentListGreaterThanPosPaymentID extends BaseResponse {
-  PosPaymentList?: POSPaymentListItem[];
+  POSPaymentListItem?: POSPaymentListItem[];
 }
 
 /**
  * Response for PosPaymentListSubFirm
  */
 export interface ResponsePosPaymentListSubFirm extends BaseResponse {
-  PosPaymentList?: POSPaymentListItem[];
+  POSPaymentListItem?: POSPaymentListItem[];
 }
 
 /**
  * Response for PosPaymentListWithEndOfDay
  */
 export interface ResponsePosPaymentListWithEndOfDay extends BaseResponse {
-  PosPaymentList?: POSPaymentListItem[];
+  POSPaymentListItem?: POSPaymentListItem[];
 }
 
 /**
  * Response for PosPaymentListWithValorDate
  */
 export interface ResponsePosPaymentListWithValorDate extends BaseResponse {
-  PosPaymentList?: POSPaymentListItem[];
+  POSPaymentListItem?: POSPaymentListItem[];
 }
 
 /**
@@ -303,7 +303,7 @@ export interface ResponsePosPaymentSUM extends BaseResponse {
 }
 
 /**
- * PosReturnListItem - item in PosReturnList
+ * PosReturnListItem - item in PosReturnListItem
  */
 export interface PosReturnListItem {
   PosReturnID?: number;
@@ -349,21 +349,21 @@ export interface PosReturnListItem {
  * Response for PosReturnList
  */
 export interface ResponsePosReturnList extends BaseResponse {
-  PosReturnList?: PosReturnListItem[];
+  PosReturnListItem?: PosReturnListItem[];
 }
 
 /**
  * Response for PosReturnListGreaterThanValorPaymentID
  */
 export interface ResponsePosReturnListGreaterThanValorPaymentID extends BaseResponse {
-  PosReturnList?: PosReturnListItem[];
+  PosReturnListItem?: PosReturnListItem[];
 }
 
 /**
  * Response for PosReturnListSubFirm
  */
 export interface ResponsePosReturnListSubFirm extends BaseResponse {
-  PosReturnList?: PosReturnListItem[];
+  PosReturnListItem?: PosReturnListItem[];
 }
 
 /**
