@@ -2,7 +2,8 @@ import { BaseResponse } from './index';
 import { BankPaymentListItem, PaymentCategoryListItem } from './bank-payment.types';
 import { BankBalance } from './responses.types';
 import { VPosTransactionListItem, POSPaymentListItem } from './pos-payment.types';
-import { SubFirmReturn } from './subfirm.types';
+import { ArrayOfString } from './common.types';
+import { ArrayOfFormula, SubFirmReturn } from './subfirm.types';
 
 /**
  * Response for BankPaymentList
@@ -136,7 +137,9 @@ export interface GetFirmBankBalanceParams extends BaseResponse {
  * Response for GetFirmBankBalance
  */
 export interface ResponseFirmBankBalance extends BaseResponse {
-  BankList?: BankBalance[];
+  BankList?: {
+    BankBalance?: BankBalance[];
+  };
 }
 
 /**
@@ -176,7 +179,9 @@ export interface GetFirmBankDailyBalanceParams extends BaseResponse {
  * Response for GetFirmBankDailyBalance
  */
 export interface ResponseFirmBankDailyBalance extends BaseResponse {
-  BankBalance?: BankBalance[];
+  BankList?: {
+    BankBalance?: BankBalance[];
+  };
 }
 
 /**
@@ -209,7 +214,9 @@ export interface GetFirmManagerListParams extends BaseResponse {
  * Response for GetFirmManagerList
  */
 export interface ResponseFirmManagerList extends BaseResponse {
-  FirmManagerList?: string[];
+  FirmManagerList?: {
+    string?: string[];
+  };
 }
 
 /**
@@ -391,20 +398,11 @@ export interface ResponseSubFirmAddNew extends BaseResponse {
  */
 export interface ResponseSubFirmGetPaymentChannel extends BaseResponse {
   PaymentExpCode?: string;
-  string?: string;
-  FormulaName?: string;
-  TargetPaymentStatus?: string;
-  PaymentType?: string;
-  FirmBankName?: string;
-  FirmBankIBAN?: string;
-  Currency?: string;
-  Explanation?: string;
-  PaymentDirectionType?: string;
-  SenderFirmBankName?: string;
-  SenderFirmIBAN?: string;
-  TCNumber?: string;
-  TaxNumber?: string;
-  BranchFirmName?: string;
+  IBANList?: ArrayOfString;
+  VKNList?: ArrayOfString;
+  TCKNList?: ArrayOfString;
+  RuleSETList?: ArrayOfString;
+  FormulaList?: ArrayOfFormula;
 }
 
 /**
