@@ -46,5 +46,10 @@
     "Follow the existing code structure: client -> soap layer -> SOAP service",
     "Always use the official BulutTahsilat API documentation as reference for SOAP operations"
   ],
-  "previousVersions": []
+  "previousVersions": [
+    {
+      "tag": "v1.0.4",
+      "title": "version 1.0.4"
+    }
+  ]
 }
