@@ -1,0 +1,50 @@
+{
+  "$schema": "https://context7.com/schema/context7.json",
+  "url": "https://context7.com/muhammedaksam/bulut-tahsilat-node",
+  "public_key": "pk_DwLynWqxOvim0fveT9Rn0",
+  "projectTitle": "BulutTahsilat Node.js SDK",
+  "description": "TypeScript client SDK for BulutTahsilat Bank Payment Web Service with comprehensive SOAP operations support",
+  "folders": [
+    "src/types/",
+    "src/soap/",
+    "src/utils/",
+    ".github/"
+  ],
+  "excludeFolders": [
+    "coverage/",
+    "dist/",
+    "node_modules/",
+    "__tests__/",
+    ".git/",
+    ".vscode/",
+    "scripts/"
+  ],
+  "excludeFiles": [
+    "CHANGELOG.md",
+    "LICENSE",
+    "pnpm-lock.yaml",
+    "jest.config.js",
+    "eslint.config.js",
+    "tsconfig.json",
+    ".prettierrc",
+    ".gitignore"
+  ],
+  "rules": [
+    "Use TypeScript with strict type checking for all BulutTahsilat SDK implementations",
+    "Always handle authentication automatically - configure credentials once and reuse the client",
+    "Use the BankPaymentServiceClient class as the main entry point for all operations",
+    "Implement proper error handling with try-catch blocks and check SOAP fault responses",
+    "Never log sensitive payment data like merchant credentials or customer information",
+    "Always validate required parameters before making SOAP requests",
+    "Use the proper date format helpers from utils/date-formatter.ts for Turkish date formats",
+    "Follow the SOAP-based architecture pattern with BaseSoapClient and SoapBuilder",
+    "Use XML parser utilities for parsing SOAP responses consistently",
+    "Set appropriate timeout values for SOAP operations (default handling in BaseSoapClient)",
+    "Use the type definitions from src/types/ for proper request/response typing",
+    "Implement unit tests for all new features using Jest",
+    "Use the PaymentStatusType enum for consistent payment status handling",
+    "Follow the existing code structure: client -> soap layer -> SOAP service",
+    "Always use the official BulutTahsilat API documentation as reference for SOAP operations"
+  ],
+  "previousVersions": []
+}
