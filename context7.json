@@ -4,7 +4,12 @@
   "public_key": "pk_DwLynWqxOvim0fveT9Rn0",
   "projectTitle": "BulutTahsilat Node.js SDK",
   "description": "TypeScript client SDK for BulutTahsilat Bank Payment Web Service with comprehensive SOAP operations support",
-  "folders": ["src/types/", "src/soap/", "src/utils/", ".github/"],
+  "folders": [
+    "src/types/",
+    "src/soap/",
+    "src/utils/",
+    ".github/"
+  ],
   "excludeFolders": [
     "coverage/",
     "dist/",
@@ -42,6 +47,10 @@
     "Always use the official BulutTahsilat API documentation as reference for SOAP operations"
   ],
   "previousVersions": [
+    {
+      "tag": "v1.0.5",
+      "title": "version 1.0.5"
+    },
     {
       "tag": "v1.0.4",
       "title": "version 1.0.4"
