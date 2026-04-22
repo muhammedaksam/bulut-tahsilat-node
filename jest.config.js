@@ -9,6 +9,7 @@ module.exports = {
       {
         tsconfig: {
           esModuleInterop: true,
+          types: ['jest', 'node'],
         },
       },
     ],
