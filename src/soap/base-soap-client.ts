@@ -107,7 +107,7 @@ export class BaseSOAPClient {
           // Try to extract SOAP fault information
           extractSOAPBody(error.response.data);
         }
-        throw new Error(`HTTP Error: ${error.message}`);
+        throw new Error(`HTTP Error: ${error.message}`, { cause: error });
       }
       throw error;
     }
@@ -149,7 +149,7 @@ export class BaseSOAPClient {
         if (error.response) {
           extractSOAPBody(error.response.data);
         }
-        throw new Error(`HTTP Error: ${error.message}`);
+        throw new Error(`HTTP Error: ${error.message}`, { cause: error });
       }
       throw error;
     }
