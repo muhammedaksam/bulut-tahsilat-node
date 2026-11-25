@@ -66,6 +66,39 @@ describe('BankPaymentServiceClient', () => {
       });
     });
 
+    it('should fall back to default firmCode in getBankPaymentListAllSubFirmWithKey', async () => {
+      const clientWithFirmCode = new BankPaymentServiceClient({
+        ...config,
+        firmCode: 'DEFAULT_FIRM',
+      });
+      jest.spyOn(clientWithFirmCode as any, 'call').mockResolvedValue({});
+
+      const startDate = new Date('2024-01-01');
+      const endDate = new Date('2024-01-31');
+      await clientWithFirmCode.getBankPaymentListAllSubFirmWithKey({
+        paymentStatusTypeID: 1,
+        startDate,
+        endDate,
+        taxNumber: '1234567890',
+        firmBranchID: 42,
+        firmBranchIDHash: 'hash-key',
+      });
+      expect((clientWithFirmCode as any).call).toHaveBeenCalledWith(
+        'BankPaymentListAllSubFirmWithKey',
+        {
+          userName: 'test-user',
+          password: 'test-pass',
+          firmCode: 'DEFAULT_FIRM',
+          paymentStatusTypeID: 1,
+          startDate,
+          endDate,
+          taxNumber: '1234567890',
+          firmBranchID: 42,
+          firmBranchIDHash: 'hash-key',
+        }
+      );
+    });
+
     it('should call getBankPaymentListAllWithFeature', async () => {
       const params = {};
       await client.getBankPaymentListAllWithFeature(params as any);

@@ -88,14 +88,12 @@ export function extractSOAPBody<T = unknown>(xml: string): T {
   if (fault) {
     // Handle SOAP 1.1 faultstring
     let faultString: string | undefined = (fault as Record<string, unknown>).faultstring as
-      | string
-      | undefined;
+      string | undefined;
 
     // Handle SOAP 1.2 Reason/Text structure
     if (!faultString) {
       const reason = (fault as Record<string, unknown>)['Reason'] as
-        | Record<string, unknown>
-        | undefined;
+        Record<string, unknown> | undefined;
       if (reason) {
         const text = reason['Text'];
         // Handle both string and object with #text property
