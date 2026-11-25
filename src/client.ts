@@ -7,6 +7,7 @@ import {
   ClientConfig,
   BankPaymentListAllParams,
   BankPaymentListAllSubFirmParams,
+  BankPaymentListAllSubFirmWithKeyParams,
   BankPaymentListAllWithFeatureParams,
   BankPaymentListDebitParams,
   BankPaymentListForCustomFieldsParams,
@@ -26,6 +27,7 @@ import {
   ResponseBankPaymentList,
   ResponseBankPaymentListAll,
   ResponseBankPaymentListAllSubFirm,
+  ResponseBankPaymentListAllSubFirmWithKey,
   ResponseBankPaymentListAllWithFeature,
   ResponseBankPaymentListDebit,
   ResponseBankPaymentListForCustomFields,
@@ -144,6 +146,23 @@ export class BankPaymentServiceClient extends BaseSOAPClient {
     return this.call('BankPaymentListAllSubFirm', {
       userName: this.userName,
       password: this.password,
+      ...rest,
+    });
+  }
+
+  /**
+   * Bank Payment List All Sub Firm With Key
+   */
+  async getBankPaymentListAllSubFirmWithKey(
+    params: Omit<BankPaymentListAllSubFirmWithKeyParams, 'userName' | 'password' | 'firmCode'> & {
+      firmCode?: string;
+    }
+  ): Promise<ResponseBankPaymentListAllSubFirmWithKey> {
+    const { firmCode, ...rest } = params;
+    return this.call('BankPaymentListAllSubFirmWithKey', {
+      userName: this.userName,
+      password: this.password,
+      firmCode: firmCode || this.firmCode,
       ...rest,
     });
   }

@@ -41,6 +41,31 @@ describe('BankPaymentServiceClient', () => {
       );
     });
 
+    it('should call getBankPaymentListAllSubFirmWithKey', async () => {
+      const startDate = new Date('2024-01-01');
+      const endDate = new Date('2024-01-31');
+      await client.getBankPaymentListAllSubFirmWithKey({
+        firmCode: 'FIRM123',
+        paymentStatusTypeID: 1,
+        startDate,
+        endDate,
+        taxNumber: '1234567890',
+        firmBranchID: 42,
+        firmBranchIDHash: 'hash-key',
+      });
+      expect((client as any).call).toHaveBeenCalledWith('BankPaymentListAllSubFirmWithKey', {
+        userName: 'test-user',
+        password: 'test-pass',
+        firmCode: 'FIRM123',
+        paymentStatusTypeID: 1,
+        startDate,
+        endDate,
+        taxNumber: '1234567890',
+        firmBranchID: 42,
+        firmBranchIDHash: 'hash-key',
+      });
+    });
+
     it('should call getBankPaymentListAllWithFeature', async () => {
       const params = {};
       await client.getBankPaymentListAllWithFeature(params as any);

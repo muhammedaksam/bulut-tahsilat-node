@@ -69,6 +69,22 @@ export interface BankPaymentListResponse {
 }
 
 /**
+ * Response for bank payment list all sub firm with key
+ */
+export interface ResponseBankPaymentListAllSubFirmWithKey {
+  Success: boolean;
+  StatusMessage?: string;
+  PaymentList?: ArrayOfBankPaymentListItem;
+}
+
+/**
+ * Bank payment list all sub firm with key response
+ */
+export interface BankPaymentListAllSubFirmWithKeyResponse {
+  BankPaymentListAllSubFirmWithKeyResult?: ResponseBankPaymentListAllSubFirmWithKey;
+}
+
+/**
  * Bank payment list with feature response
  */
 export interface BankPaymentListAllWithFeatureResponse {
