@@ -112,6 +112,14 @@ export interface BankPaymentListAllSubFirmParams extends BankPaymentListParams {
 }
 
 /**
+ * Parameters for bank payment list all sub firm with key
+ */
+export interface BankPaymentListAllSubFirmWithKeyParams extends BankPaymentListAllSubFirmParams {
+  firmBranchID: number;
+  firmBranchIDHash: string;
+}
+
+/**
  * Payment category list item
  */
 export interface PaymentCategoryListItem {

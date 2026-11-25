@@ -159,6 +159,21 @@ const subFirmPayments = await client.getBankPaymentListAllSubFirm({
 });
 ```
 
+#### getBankPaymentListAllSubFirmWithKey
+
+Get bank payments for all sub-firms using a branch ID and hash key.
+
+```typescript
+const subFirmPayments = await client.getBankPaymentListAllSubFirmWithKey({
+  paymentStatusTypeID: PaymentStatusType.Waiting,
+  startDate: new Date('2024-01-01'),
+  endDate: new Date('2024-01-31'),
+  taxNumber: '1234567890',
+  firmBranchID: 1,
+  firmBranchIDHash: 'your-branch-hash',
+});
+```
+
 #### getBankPaymentListAllWithFeature
 
 Get bank payments with additional feature fields.
@@ -490,14 +505,10 @@ Manage firm managers.
 const managers = await client.getFirmManagerList();
 
 // Add manager
-await client.addFirmManager({
-  /* params */
-});
+await client.addFirmManager({/* params */});
 
 // Delete manager
-await client.deleteFirmManager({
-  /* params */
-});
+await client.deleteFirmManager({/* params */});
 ```
 
 ## Type Definitions

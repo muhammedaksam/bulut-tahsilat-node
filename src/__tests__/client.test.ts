@@ -21,15 +21,47 @@ describe('BankPaymentServiceClient', () => {
     });
 
     it('should call getBankPaymentList', async () => {
-      const params = {};
+      const params = { firmCode: 'FIRM123' };
       await client.getBankPaymentList(params as any);
-      expect((client as any).call).toHaveBeenCalledWith('BankPaymentList', expect.any(Object));
+      expect((client as any).call).toHaveBeenCalledWith(
+        'BankPaymentList',
+        expect.objectContaining({ firmCode: 'FIRM123' })
+      );
+    });
+
+    it('should fall back to default firmCode in getBankPaymentList', async () => {
+      const clientWithFirmCode = new BankPaymentServiceClient({
+        ...config,
+        firmCode: 'DEFAULT_FIRM',
+      });
+      jest.spyOn(clientWithFirmCode as any, 'call').mockResolvedValue({});
+      await clientWithFirmCode.getBankPaymentList({} as any);
+      expect((clientWithFirmCode as any).call).toHaveBeenCalledWith(
+        'BankPaymentList',
+        expect.objectContaining({ firmCode: 'DEFAULT_FIRM' })
+      );
     });
 
     it('should call getBankPaymentListAll', async () => {
-      const params = {};
+      const params = { firmCode: 'FIRM123' };
       await client.getBankPaymentListAll(params as any);
-      expect((client as any).call).toHaveBeenCalledWith('BankPaymentListAll', expect.any(Object));
+      expect((client as any).call).toHaveBeenCalledWith(
+        'BankPaymentListAll',
+        expect.objectContaining({ firmCode: 'FIRM123' })
+      );
+    });
+
+    it('should fall back to default firmCode in getBankPaymentListAll', async () => {
+      const clientWithFirmCode = new BankPaymentServiceClient({
+        ...config,
+        firmCode: 'DEFAULT_FIRM',
+      });
+      jest.spyOn(clientWithFirmCode as any, 'call').mockResolvedValue({});
+      await clientWithFirmCode.getBankPaymentListAll({} as any);
+      expect((clientWithFirmCode as any).call).toHaveBeenCalledWith(
+        'BankPaymentListAll',
+        expect.objectContaining({ firmCode: 'DEFAULT_FIRM' })
+      );
     });
 
     it('should call getBankPaymentListAllSubFirm', async () => {
@@ -38,6 +70,28 @@ describe('BankPaymentServiceClient', () => {
       expect((client as any).call).toHaveBeenCalledWith(
         'BankPaymentListAllSubFirm',
         expect.any(Object)
+      );
+    });
+
+    it('should call getBankPaymentListAllSubFirmWithKey', async () => {
+      const params = { firmCode: 'FIRM123' };
+      await client.getBankPaymentListAllSubFirmWithKey(params as any);
+      expect((client as any).call).toHaveBeenCalledWith(
+        'BankPaymentListAllSubFirmWithKey',
+        expect.objectContaining({ firmCode: 'FIRM123' })
+      );
+    });
+
+    it('should fall back to default firmCode in getBankPaymentListAllSubFirmWithKey', async () => {
+      const clientWithFirmCode = new BankPaymentServiceClient({
+        ...config,
+        firmCode: 'DEFAULT_FIRM',
+      });
+      jest.spyOn(clientWithFirmCode as any, 'call').mockResolvedValue({});
+      await clientWithFirmCode.getBankPaymentListAllSubFirmWithKey({} as any);
+      expect((clientWithFirmCode as any).call).toHaveBeenCalledWith(
+        'BankPaymentListAllSubFirmWithKey',
+        expect.objectContaining({ firmCode: 'DEFAULT_FIRM' })
       );
     });
 
@@ -51,9 +105,25 @@ describe('BankPaymentServiceClient', () => {
     });
 
     it('should call getBankPaymentListDebit', async () => {
-      const params = {};
+      const params = { firmCode: 'FIRM123' };
       await client.getBankPaymentListDebit(params as any);
-      expect((client as any).call).toHaveBeenCalledWith('BankPaymentListDebit', expect.any(Object));
+      expect((client as any).call).toHaveBeenCalledWith(
+        'BankPaymentListDebit',
+        expect.objectContaining({ firmCode: 'FIRM123' })
+      );
+    });
+
+    it('should fall back to default firmCode in getBankPaymentListDebit', async () => {
+      const clientWithFirmCode = new BankPaymentServiceClient({
+        ...config,
+        firmCode: 'DEFAULT_FIRM',
+      });
+      jest.spyOn(clientWithFirmCode as any, 'call').mockResolvedValue({});
+      await clientWithFirmCode.getBankPaymentListDebit({} as any);
+      expect((clientWithFirmCode as any).call).toHaveBeenCalledWith(
+        'BankPaymentListDebit',
+        expect.objectContaining({ firmCode: 'DEFAULT_FIRM' })
+      );
     });
 
     it('should call getBankPaymentListForCustomFields', async () => {
@@ -165,7 +235,7 @@ describe('BankPaymentServiceClient', () => {
     });
 
     it('should call getFirmManagerList', async () => {
-      await client.getFirmManagerList('test-payment-exp-code');
+      await client.getFirmManagerList('test');
       expect((client as any).call).toHaveBeenCalledWith('GetFirmManagerList', expect.any(Object));
     });
 
@@ -199,10 +269,8 @@ describe('BankPaymentServiceClient', () => {
     });
 
     it('should call getFirmBankDailyBalance', async () => {
-      await client.getFirmBankDailyBalance({
-        iban: 'TR123',
-        date: new Date().toISOString(),
-      } as any);
+      const params = {};
+      await client.getFirmBankDailyBalance(params as any);
       expect((client as any).call).toHaveBeenCalledWith(
         'GetFirmBankDailyBalance',
         expect.any(Object)
@@ -269,7 +337,7 @@ describe('BankPaymentServiceClient', () => {
     });
 
     it('should call getPosReturnListGreaterThanID', async () => {
-      await client.getPosReturnListGreaterThanID(456);
+      await client.getPosReturnListGreaterThanID(123);
       expect((client as any).call).toHaveBeenCalledWith(
         'PosReturnListGreaterThanValorPaymentID',
         expect.any(Object)
@@ -295,7 +363,8 @@ describe('BankPaymentServiceClient', () => {
     });
 
     it('should call updatePaymentStatus', async () => {
-      await client.updatePaymentStatus({ paymentID: 123, paymentStatusTypeID: 1 });
+      const params = {};
+      await client.updatePaymentStatus(params as any);
       expect((client as any).call).toHaveBeenCalledWith(
         'UpdatePaymentStatusInfo',
         expect.any(Object)
@@ -303,12 +372,8 @@ describe('BankPaymentServiceClient', () => {
     });
 
     it('should call updatePaymentStatusWithERPRefNo', async () => {
-      await client.updatePaymentStatusWithERPRefNo({
-        StatusCode: 0,
-        paymentID: 123,
-        paymentStatusTypeID: 1,
-        eRPRefNo: 'REF123',
-      });
+      const params = {};
+      await client.updatePaymentStatusWithERPRefNo(params as any);
       expect((client as any).call).toHaveBeenCalledWith(
         'UpdatePaymentStatusInfoWithERPRefNo',
         expect.any(Object)
@@ -316,12 +381,8 @@ describe('BankPaymentServiceClient', () => {
     });
 
     it('should call updatePaymentStatusWithExpCode', async () => {
-      await client.updatePaymentStatusWithExpCode({
-        StatusCode: 0,
-        paymentID: 123,
-        paymentExpCode: 'EXP123',
-        paymentStatusTypeID: 1,
-      });
+      const params = {};
+      await client.updatePaymentStatusWithExpCode(params as any);
       expect((client as any).call).toHaveBeenCalledWith(
         'UpdatePaymentStatusInfoWithPaymentExpCode',
         expect.any(Object)
@@ -329,11 +390,8 @@ describe('BankPaymentServiceClient', () => {
     });
 
     it('should call updatePaymentStatusWithIDList', async () => {
-      await client.updatePaymentStatusWithIDList({
-        StatusCode: 0,
-        int: 123,
-        paymentStatusTypeID: 1,
-      });
+      const params = {};
+      await client.updatePaymentStatusWithIDList(params as any);
       expect((client as any).call).toHaveBeenCalledWith(
         'UpdatePaymentStatusInfoWithPaymentIDList',
         expect.any(Object)
